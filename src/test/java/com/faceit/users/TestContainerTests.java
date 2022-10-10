@@ -9,12 +9,13 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Testcontainers
 public class TestContainerTests {
+    private static final String DB_CONSTANT = "faceit";
 
     @Container
     public static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:13.1-alpine")
-            .withDatabaseName("faceit")
-            .withUsername("faceit")
-            .withPassword("faceit");
+            .withDatabaseName(DB_CONSTANT)
+            .withUsername(DB_CONSTANT)
+            .withPassword(DB_CONSTANT);
 
     @DynamicPropertySource
     static void postgresqlProperties(DynamicPropertyRegistry registry) {
